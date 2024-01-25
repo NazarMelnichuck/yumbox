@@ -1,0 +1,32 @@
+.App {
+	position: relative;
+	height: 100%;
+	overflow-x: hidden;
+}
+
+.main {
+	padding-top: 128px;
+
+	@media (max-width: 768px) {
+		padding-top: 82px;
+	}
+}
+
+.menuBlur {
+	position: absolute;
+	top: 0;
+	visibility: hidden;
+	opacity: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(252, 184, 82, 0.11);
+	backdrop-filter: blur(5px);
+	z-index: 999;
+	transition: all 0.5s ease 0s;
+
+	&.active {
+		visibility: visible;
+		opacity: 1;
+		transition: all 0.5s ease 0s;
+	}
+}

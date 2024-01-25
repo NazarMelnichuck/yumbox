@@ -52,7 +52,10 @@ body {
 	font-family: Montserrat;
 	background-color: #000;
 	margin: 0;
+	overflow-x: hidden;
+	height: 100vh;
 }
+
 main {
 	display: block;
 }
@@ -207,6 +210,10 @@ ol[class] {
 ::-webkit-scrollbar-thumb {
 	background-color: #fcb852;
 	border-radius: 25px;
+}
+
+#root {
+	height: 100%;
 }
 
 .container {

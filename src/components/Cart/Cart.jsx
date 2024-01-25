@@ -1,17 +1,20 @@
-import React from 'react'
+import { React, useContext } from 'react'
 import c from './Cart.module.scss'
 import CartItem from './CartItem/CartItem'
 
 import { ReactComponent as Close } from '../../assets/img/close.svg'
+import { sideBlockContext } from '../../App'
 
-const Cart = ({ active, openCart }) => {
+const Cart = () => {
+	const { isCart, setIsCart } = useContext(sideBlockContext)
+
 	return (
-		<div className={active ? `${c.cart} ${c.active}` : c.cart}>
+		<div className={isCart ? `${c.cart} ${c.active}` : c.cart}>
 			<div className={c.cart__container}>
 				<div className={c.cart__top}>
 					<div className={c.cart__header}>
 						<h1 className={c.cart__headerTitle}>Корзина</h1>
-						<button className={c.cart__closeBtn} onClick={() => openCart(false)}>
+						<button className={c.cart__closeBtn} onClick={() => setIsCart(false)}>
 							<Close />
 						</button>
 					</div>

@@ -1,18 +1,17 @@
 .menu {
 	position: fixed;
 	top: 128px;
-	right: 0;
+	right: -100%;
 	background-color: #000;
 	width: 470px;
 	height: calc(100% - 128px);
 	min-height: 300px;
 	overflow-y: auto;
 	z-index: 1000;
-	transform: translateX(200%);
 	transition: all 0.5s ease 0s;
 
 	&.active {
-		transform: translateX(0);
+		right: 0%;
 		transition: all 0.5s ease 0s;
 	}
 
