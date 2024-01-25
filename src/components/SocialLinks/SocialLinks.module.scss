@@ -1,0 +1,14 @@
+.socialsLinks {
+	display: flex;
+	flex-direction: row;
+	gap: 45px;
+	&__icon {
+		transition: 0.2s;
+		&:hover {
+			* {
+				fill: #f3ba4f;
+				transition: 0.2s;
+			}
+		}
+	}
+}

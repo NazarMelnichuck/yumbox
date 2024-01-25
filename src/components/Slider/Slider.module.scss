@@ -1,0 +1,63 @@
+.salesSlider {
+	padding-bottom: 65px;
+	&__container {
+		position: relative;
+	}
+	&__sticker {
+		position: absolute;
+		top: 10px;
+		left: 105px;
+		z-index: 2;
+
+		animation-name: spin;
+		animation-duration: 6000ms;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+
+		@media (max-width: 1150px) {
+			left: 50px;
+		}
+
+		@media (max-width: 1024px) {
+			width: 200px;
+		}
+
+		@media (max-width: 768px) {
+			display: none;
+		}
+	}
+	&__slider {
+		position: absolute;
+	}
+	&__link {
+		display: inline-block;
+		width: 100%;
+		border-radius: 25px;
+	}
+	&__img {
+		margin: 0 auto;
+	}
+	&__navigations {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		position: absolute;
+		bottom: 52%;
+		width: 100%;
+		z-index: 11;
+		cursor: pointer;
+
+		@media (max-width: 768px) {
+			bottom: 0%;
+		}
+	}
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

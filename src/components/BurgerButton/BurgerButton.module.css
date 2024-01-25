@@ -1,0 +1,89 @@
+.header__burger {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 10px;
+}
+
+.header__burgerText {
+	color: #fff;
+	font-family: Montserrat;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 92%;
+}
+
+.headerbBurger {
+	display: block;
+	position: relative;
+	width: 22px;
+	height: 14px;
+	padding: 10px;
+	z-index: 120;
+	cursor: pointer;
+}
+
+.headerbBurger span {
+	position: absolute;
+	background-color: #fff;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	top: 9px;
+	z-index: 120;
+	transition: all 0.3s ease 0s;
+}
+
+.headerbBurger:before,
+.headerbBurger:after {
+	content: '';
+	background-color: #fff;
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	left: 0;
+	transition: all 0.3s ease 0s;
+}
+
+.headerbBurger:before {
+	top: 0;
+	z-index: 3;
+}
+
+.headerbBurger:after {
+	bottom: 0;
+	z-index: 120;
+}
+
+/*======animation burger*/
+
+.headerbBurger.active:before {
+	transform: rotate(45deg);
+	top: 9px;
+}
+
+.headerbBurger.active span {
+	transform: scale(0);
+}
+
+.headerbBurger.active:after {
+	transform: rotate(-45deg);
+	bottom: 9px;
+}
+
+/*hide*/
+
+.headerbBurger.hide:before {
+	transform: rotate(0deg);
+	top: 0px;
+}
+
+.headerbBurger.hide span {
+	transform: scale(1);
+}
+
+.headerbBurger.hide:after {
+	transform: rotate(0deg);
+	bottom: 0px;
+}

@@ -1,0 +1,26 @@
+.contacts {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 10px;
+	margin-bottom: 75px;
+
+	&__email {
+		color: #f3ba4f;
+		text-align: center;
+		font-family: Montserrat;
+		font-size: 18px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: 100%;
+	}
+	&__phone {
+		color: #fff;
+		text-align: center;
+		font-family: Montserrat;
+		font-size: 18px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: 100%;
+	}
+}

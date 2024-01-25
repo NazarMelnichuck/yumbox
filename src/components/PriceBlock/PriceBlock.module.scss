@@ -1,0 +1,41 @@
+.priceBlock {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 11px;
+
+	width: 117px;
+	background: none;
+	border-radius: 21px;
+	border: 1px solid #fff;
+	padding: 4px 5px;
+	transition: 0.2s;
+	cursor: pointer;
+
+	color: #fff;
+	font-family: Montserrat;
+	font-size: 13px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+
+	&:hover {
+		background-color: #fcb852;
+		transition: 0.2s;
+	}
+
+	@media (max-width: 768px) {
+		margin-bottom: 35px;
+	}
+
+	&__count {
+		width: 19px;
+		height: 19px;
+		background-color: #d71515;
+		border-radius: 50%;
+		text-align: center;
+		line-height: 150%;
+	}
+	&__price {
+	}
+}

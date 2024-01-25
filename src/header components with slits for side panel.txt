@@ -1,0 +1,48 @@
+import React, { useState, useEffect } from 'react'
+// import c from './Heder.module.scss'
+// import logo from '../../assets/img/logo.png'
+// import PriceBlock from '../PriceBlock/PriceBlock'
+// import Nav from '../Nav/Nav'
+// import Menu from '../Menu/Menu'
+// import BurgerButton from '../BurgerButton/BurgerButton'
+// import SidePanel from '../../hoc/SidePanel/SidePanel'
+
+// const Header = () => {
+// 	const [isMenu, setIsMenu] = useState(false)
+// 	const [isCart, setIsCart] = useState(true)
+
+// 	const [breakpoint, setBreakpoint] = useState(window.innerWidth)
+
+// 	useEffect(() => {
+// 		window.addEventListener('resize', checkWidth)
+// 		return () => {
+// 			window.removeEventListener('resize', checkWidth)
+// 		}
+// 	}, [])
+
+// 	const checkWidth = () => {
+// 		setBreakpoint(window.innerWidth)
+// 	}
+
+// 	const openMenu = (isOpen) => {
+// 		setIsMenu(isOpen)
+// 	}
+
+// 	const MenuPanel = SidePanel(Menu)
+
+// 	return (
+// 		<header className={c.header}>
+// 			<div className={`${c.header__container} container`}>
+// 				<a href='/'>
+// 					<img className={c.header__logo} src={logo} alt='logo' />
+// 				</a>
+// 				{breakpoint > 768 ? <Nav /> : null}
+// 				{breakpoint > 768 ? <PriceBlock /> : null}
+// 				{breakpoint < 768 ? <BurgerButton openMenu={openMenu} isOpen={isMenu} /> : null}
+// 			</div>
+// 			<MenuPanel active={isMenu} />
+// 		</header>
+// 	)
+// }
+
+// export default Header
