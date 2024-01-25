@@ -4,6 +4,8 @@ import Main from './Pages/Main/Main'
 import Header from './components/Header/Header'
 import Menu from './components/Menu/Menu'
 import Cart from './components/Cart/Cart'
+import useInnerWidth from './hooks/useInnerWidth'
+import PriceBlock from './components/PriceBlock/PriceBlock'
 
 export const sideBlockContext = createContext(null)
 
@@ -11,11 +13,13 @@ function App() {
 	const [isMenu, setIsMenu] = useState(false)
 	const [isCart, setIsCart] = useState(false)
 
+	const width = useInnerWidth()
+
 	useEffect(() => {
 		if (isMenu || isCart) {
-			document.body.style.overflow = 'hidden'
+			document.body.style.overflowY = 'hidden'
 		} else {
-			document.body.style.overflow = ''
+			document.body.style.overflowY = ''
 		}
 	}, [isMenu, isCart])
 
@@ -38,6 +42,11 @@ function App() {
 				/>
 				<Menu />
 				<Cart />
+				{width < 768 ? (
+					<div className='price-block'>
+						<PriceBlock />
+					</div>
+				) : null}
 			</div>
 		</sideBlockContext.Provider>
 	)

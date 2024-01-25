@@ -25,9 +25,11 @@
 		line-height: normal;
 		transition: 0.2s;
 
-		&:hover {
-			color: #fcb852;
-			transition: 0.2s;
+		@media (min-width: 768px) {
+			&:hover {
+				color: #fcb852;
+				transition: 0.2s;
+			}
 		}
 
 		@media (max-width: 768px) {

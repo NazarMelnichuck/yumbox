@@ -5,7 +5,7 @@
 	gap: 11px;
 
 	width: 117px;
-	background: none;
+	background-color: #000;
 	border-radius: 21px;
 	border: 1px solid #fff;
 	padding: 4px 5px;
@@ -19,9 +19,11 @@
 	font-weight: 700;
 	line-height: normal;
 
-	&:hover {
-		background-color: #fcb852;
-		transition: 0.2s;
+	@media (min-width: 768px) {
+		&:hover {
+			background-color: #fcb852;
+			transition: 0.2s;
+		}
 	}
 
 	@media (max-width: 768px) {
@@ -37,5 +39,11 @@
 		line-height: 150%;
 	}
 	&__price {
+		color: #fff;
+		font-family: Montserrat;
+		font-size: 13px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: normal;
 	}
 }

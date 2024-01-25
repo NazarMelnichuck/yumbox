@@ -26,7 +26,6 @@ const Slider = () => {
 					slidesPerView={1}
 					loop={true}
 					autoplay={{ delay: 5000 }}
-					pauseOnMouseEnter
 					navigation={{
 						prevEl: '.prev-button',
 						nextEl: '.next-button',

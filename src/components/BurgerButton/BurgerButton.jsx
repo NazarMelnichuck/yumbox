@@ -6,29 +6,29 @@ const BurgerButton = () => {
 	const { isMenu, setIsMenu, isCart, setIsCart } = useContext(sideBlockContext)
 	const burgerBtn = useRef()
 
-	const burgerClick = (e) => {
+	const burgerClick = () => {
 		if (!isMenu) {
 			setIsMenu(true)
 			if (isCart) {
 				setIsCart(false)
 			}
-			e.target.classList.add(c.active)
+			burgerBtn.current.children[1].classList.add(`${c.active}`)
 		} else {
 			setIsMenu(false)
-			e.target.classList.remove(c.active)
+			burgerBtn.current.children[1].classList.remove(`${c.active}`)
 		}
 	}
 
 	useEffect(() => {
 		if (isCart || !isMenu) {
-			burgerBtn.current.classList.remove(`${c.active}`)
+			burgerBtn.current.children[1].classList.remove(`${c.active}`)
 		}
 	}, [isCart, isMenu])
 
 	return (
-		<div className={c.header__burger}>
+		<div className={c.header__burger} onClick={burgerClick} ref={burgerBtn}>
 			<span className={c.header__burgerText}>Меню</span>
-			<div className={c.headerbBurger} onClick={burgerClick} ref={burgerBtn}>
+			<div className={c.headerbBurger}>
 				<span></span>
 			</div>
 		</div>

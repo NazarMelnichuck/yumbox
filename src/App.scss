@@ -6,6 +6,7 @@
 
 .main {
 	padding-top: 128px;
+	padding-bottom: 80px;
 
 	@media (max-width: 768px) {
 		padding-top: 82px;
@@ -29,4 +30,11 @@
 		opacity: 1;
 		transition: all 0.5s ease 0s;
 	}
+}
+
+.price-block {
+	position: fixed;
+	bottom: 25px;
+	right: 20px;
+	z-index: 999;
 }

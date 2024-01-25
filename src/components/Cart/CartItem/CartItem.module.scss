@@ -86,10 +86,12 @@
 			transition: 0.2s;
 		}
 
-		&:hover {
-			* {
-				fill: red;
-				transition: 0.2s;
+		@media (min-width: 768px) {
+			&:hover {
+				* {
+					fill: red;
+					transition: 0.2s;
+				}
 			}
 		}
 	}
@@ -134,10 +136,12 @@
 			transition: 0.2s;
 		}
 
-		&:hover {
-			* {
-				fill: #fcb852;
-				transition: 0.2s;
+		@media (min-width: 768px) {
+			&:hover {
+				* {
+					fill: #fcb852;
+					transition: 0.2s;
+				}
 			}
 		}
 	}

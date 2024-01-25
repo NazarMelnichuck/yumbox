@@ -1,24 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import c from './Heder.module.scss'
 
 import logo from '../../assets/img/logo.png'
 import PriceBlock from '../PriceBlock/PriceBlock'
 import Nav from '../Nav/Nav'
 import BurgerButton from '../BurgerButton/BurgerButton'
+import useInnerWidth from '../../hooks/useInnerWidth'
 
 const Header = () => {
-	const [breakpoint, setBreakpoint] = useState(window.innerWidth)
-
-	useEffect(() => {
-		window.addEventListener('resize', checkWidth)
-		return () => {
-			window.removeEventListener('resize', checkWidth)
-		}
-	}, [])
-
-	const checkWidth = () => {
-		setBreakpoint(window.innerWidth)
-	}
+	const width = useInnerWidth()
 
 	return (
 		<header className={c.header}>
@@ -26,9 +16,9 @@ const Header = () => {
 				<a href='/'>
 					<img className={c.header__logo} src={logo} alt='logo' />
 				</a>
-				{breakpoint > 768 ? <Nav /> : null}
-				{breakpoint > 768 ? <PriceBlock /> : null}
-				{breakpoint < 768 ? <BurgerButton /> : null}
+				{width > 768 ? <Nav /> : null}
+				{width > 768 ? <PriceBlock /> : null}
+				{width < 768 ? <BurgerButton /> : null}
 			</div>
 		</header>
 	)

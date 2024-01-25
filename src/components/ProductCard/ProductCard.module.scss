@@ -1,0 +1,104 @@
+.productCard {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+
+	&:hover {
+		.productCard__btn {
+			opacity: 1;
+			visibility: visible;
+			transition: opacity 0.2s, visibility 0.2s;
+		}
+	}
+
+	&__img {
+	}
+
+	&__info {
+		padding: 20px 35px 26px 35px;
+	}
+
+	&__text {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 25px;
+		margin-bottom: 60px;
+	}
+
+	&__infoTitle {
+		color: #fff;
+		text-align: center;
+		font-family: Montserrat;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: 100%;
+	}
+
+	&__infoWeigh {
+		color: #fff;
+		text-align: center;
+		font-family: Montserrat;
+		font-size: 13px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 100%;
+	}
+
+	&__price {
+		color: #fff;
+		text-align: center;
+		font-family: Montserrat;
+		font-size: 18px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: 100%;
+	}
+
+	&__btn {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		background-color: #000;
+		border-radius: 63px;
+		border: 2px solid #fff;
+		padding: 25px 20px;
+		width: 100%;
+		opacity: 0;
+		visibility: hidden;
+		transition: 0.2s;
+		cursor: pointer;
+
+		color: #fff;
+		text-align: center;
+		font-family: Montserrat;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 100%;
+
+		&_addCart {
+			@media (min-width: 768px) {
+				&:hover {
+					background-color: #fcb852;
+					border-color: #fcb852;
+					transition: 0.2s;
+					box-shadow: 0px 0px 20px 0px #fcb852;
+				}
+			}
+		}
+
+		&_inCart {
+			img {
+				margin-right: 10px;
+			}
+		}
+	}
+}
