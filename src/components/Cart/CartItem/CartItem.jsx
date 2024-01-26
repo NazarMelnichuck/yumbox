@@ -1,39 +1,62 @@
 import React from 'react'
 import c from './CartItem.module.scss'
 
-import productIcon from '../../../assets/img/Cart/product-icon.png'
 import { ReactComponent as Bin } from '../../../assets/img/Cart/bin.svg'
 import { ReactComponent as Minus } from '../../../assets/img/minus.svg'
 import { ReactComponent as Plus } from '../../../assets/img/plus.svg'
+import { useDispatch } from 'react-redux'
+import {
+	calculateOrder,
+	deleteCartItem,
+	minusQuantity,
+	plusQuantity,
+} from '../../../store/cartSlice'
 
-const CartItem = () => {
+const CartItem = ({ id, title, weight, icon, quantity, price, priceCount, productId }) => {
+	const dispatch = useDispatch()
+
 	return (
-		<div className={c.cartItem}>
+		<li className={c.cartItem} key={id}>
 			<div className={`${c.cartItem__info} ${c.cartItemInfo}`}>
 				<div className={c.cartItemInfo__imgBlock}>
-					<img className={c.cartItemInfo__img} src={productIcon} alt='productIcon' />
+					<img className={c.cartItemInfo__img} src={`./products/${icon}`} alt='productIcon' />
 				</div>
 				<div className={c.cartItemInfo__text}>
-					<h3 className={c.cartItemInfo__productTitle}>Yumbox 21 сет суперкачний суперсет</h3>
-					<span className={c.cartItemInfo__produxtWeight}>1500 гр</span>
+					<h3 className={c.cartItemInfo__productTitle}>{title}</h3>
+					<span className={c.cartItemInfo__produxtWeight}>{weight} гр</span>
 				</div>
-				<button className={c.cartItemInfo__delete}>
+				<button
+					className={c.cartItemInfo__delete}
+					onClick={() => dispatch(deleteCartItem(productId))}
+				>
 					<Bin />
 				</button>
 			</div>
 			<div className={`${c.cartItem__order} ${c.cartItemOrder}`}>
-				<h4 className={c.cartItemOrder__price}>799 ₴</h4>
+				<h4 className={c.cartItemOrder__price}>{priceCount} ₴</h4>
 				<div className={c.cartItemOrder__countBlock}>
-					<button className={c.cartItemOrder__coutnBtn}>
+					<button
+						className={c.cartItemOrder__coutnBtn}
+						onClick={() => {
+							dispatch(minusQuantity({ productId, price }))
+							dispatch(calculateOrder())
+						}}
+					>
 						<Minus />
 					</button>
-					<span className={c.cartItemOrder__count}>1</span>
-					<button className={c.cartItemOrder__coutnBtn}>
+					<span className={c.cartItemOrder__count}>{quantity}</span>
+					<button
+						className={c.cartItemOrder__coutnBtn}
+						onClick={() => {
+							dispatch(plusQuantity({ productId, price }))
+							dispatch(calculateOrder())
+						}}
+					>
 						<Plus />
 					</button>
 				</div>
 			</div>
-		</div>
+		</li>
 	)
 }
 

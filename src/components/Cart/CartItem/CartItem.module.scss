@@ -6,9 +6,10 @@
 	background: #222;
 
 	&__info {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
+		display: grid;
+		grid-template-columns: 50px 1fr 16px;
+		gap: 25px;
+
 		position: relative;
 		padding: 18px 18px 14px 18px;
 
@@ -35,7 +36,6 @@
 .cartItemInfo {
 	&__imgBlock {
 		background-color: #303030;
-		margin-right: 24px;
 		padding: 10px;
 	}
 
@@ -45,7 +45,6 @@
 	}
 
 	&__text {
-		margin-right: 13px;
 	}
 
 	&__productTitle {
@@ -77,9 +76,13 @@
 	}
 
 	&__delete {
+		align-self: center;
 		background: none;
 		border: none;
 		transition: 0.2s;
+		padding: 0;
+		width: 16px;
+		height: 18px;
 		cursor: pointer;
 
 		* {

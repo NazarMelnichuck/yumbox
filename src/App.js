@@ -6,6 +6,8 @@ import Menu from './components/Menu/Menu'
 import Cart from './components/Cart/Cart'
 import useInnerWidth from './hooks/useInnerWidth'
 import PriceBlock from './components/PriceBlock/PriceBlock'
+import { Provider } from 'react-redux'
+import store from './store/store'
 
 export const sideBlockContext = createContext(null)
 
@@ -29,26 +31,28 @@ function App() {
 	}
 
 	return (
-		<sideBlockContext.Provider value={{ isMenu, setIsMenu, isCart, setIsCart }}>
-			<div className='App'>
-				<Header />
-				<main className='main'>
-					<Main />
-				</main>
+		<Provider store={store}>
+			<sideBlockContext.Provider value={{ isMenu, setIsMenu, isCart, setIsCart }}>
+				<div className='App'>
+					<Header />
+					<main className='main'>
+						<Main />
+					</main>
 
-				<div
-					className={isMenu || isCart ? 'menuBlur active' : 'menuBlur'}
-					onClick={clickOnBlur}
-				/>
-				<Menu />
-				<Cart />
-				{width < 768 ? (
-					<div className='price-block'>
-						<PriceBlock />
-					</div>
-				) : null}
-			</div>
-		</sideBlockContext.Provider>
+					<div
+						className={isMenu || isCart ? 'menuBlur active' : 'menuBlur'}
+						onClick={clickOnBlur}
+					/>
+					<Menu />
+					<Cart />
+					{width < 768 ? (
+						<div className='price-block'>
+							<PriceBlock />
+						</div>
+					) : null}
+				</div>
+			</sideBlockContext.Provider>
+		</Provider>
 	)
 }
 

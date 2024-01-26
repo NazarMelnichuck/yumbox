@@ -2,8 +2,6 @@ import React from 'react'
 import c from './Slider.module.scss'
 import './Swiper.scss'
 
-import slide from '../../assets/img/sales/images/slide-1.png'
-import slideMob from '../../assets/img/sales/images/slide-1-mob.png'
 import sticker from '../../assets/img/sales/sticker.png'
 import prev from '../../assets/img/sales/prev-btn.png'
 import next from '../../assets/img/sales/next-btn.png'
@@ -14,8 +12,10 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 import 'swiper/scss'
 import 'swiper/scss/navigation'
 import 'swiper/scss/pagination'
+import { useSelector } from 'react-redux'
 
 const Slider = () => {
+	const sliderItems = useSelector((state) => state.general.sliderItems)
 	return (
 		<div className={c.salesSlider}>
 			<div className={`${c.salesSlider__container} container`}>
@@ -34,30 +34,25 @@ const Slider = () => {
 				>
 					<img className={c.salesSlider__sticker} src={sticker} alt='sticker' />
 					<div>
-						<SwiperSlide>
-							<a className={c.salesSlider__link} href='/'>
-								<picture>
-									<source srcSet={slideMob} media='(max-width: 768px)' />
-									<img className={c.salesSlider__img} src={slide} alt='product' />
-								</picture>
-							</a>
-						</SwiperSlide>
-						<SwiperSlide>
-							<a className={c.salesSlider__link} href='/'>
-								<picture>
-									<source srcSet={slideMob} media='(max-width: 768px)' />
-									<img className={c.salesSlider__img} src={slide} alt='product' />
-								</picture>
-							</a>
-						</SwiperSlide>
-						<SwiperSlide>
-							<a className={c.salesSlider__link} href='/'>
-								<picture>
-									<source srcSet={slideMob} media='(max-width: 768px)' />
-									<img className={c.salesSlider__img} src={slide} alt='product' />
-								</picture>
-							</a>
-						</SwiperSlide>
+						{sliderItems.map((slider) => {
+							return (
+								<SwiperSlide key={slider.id}>
+									<a className={c.salesSlider__link} href={slider.href}>
+										<picture>
+											<source
+												srcSet={`./sliders/${slider.imgSmall}`}
+												media='(max-width: 768px)'
+											/>
+											<img
+												className={c.salesSlider__img}
+												src={`./sliders/${slider.img}`}
+												alt='product'
+											/>
+										</picture>
+									</a>
+								</SwiperSlide>
+							)
+						})}
 					</div>
 					<div className={c.salesSlider__navigations}>
 						<img className='prev-button' src={prev} alt='prev' />

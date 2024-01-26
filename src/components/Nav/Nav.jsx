@@ -1,30 +1,21 @@
 import React from 'react'
 import c from './Nav.module.scss'
+import { useSelector } from 'react-redux'
 
 const Nav = () => {
+	const navigationItems = useSelector((state) => state.general.navigationItems)
 	return (
 		<nav className={c.nav}>
 			<ul className={c.nav__list}>
-				<li className={c.nav__item}>
-					<a href='/' className={c.nav__link}>
-						Каталог
-					</a>
-				</li>
-				<li className={c.nav__item}>
-					<a href='/' className={c.nav__link}>
-						Кейтеринг
-					</a>
-				</li>
-				<li className={c.nav__item}>
-					<a href='/' className={c.nav__link}>
-						Про нас
-					</a>
-				</li>
-				<li className={c.nav__item}>
-					<a href='/' className={c.nav__link}>
-						Контакти
-					</a>
-				</li>
+				{navigationItems.map((link) => {
+					return (
+						<li className={c.nav__item} key={link.title}>
+							<a href={link.href} className={c.nav__link}>
+								{link.title}
+							</a>
+						</li>
+					)
+				})}
 			</ul>
 		</nav>
 	)
