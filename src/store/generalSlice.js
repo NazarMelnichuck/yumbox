@@ -6,19 +6,19 @@ export const generalSlice = createSlice({
 		navigationItems: [
 			{
 				title: 'Каталог',
-				href: '/',
+				href: '/catalog',
 			},
 			{
 				title: 'Кейтеринг',
-				href: '/',
+				href: '/catering',
 			},
 			{
 				title: 'Про нас',
-				href: '/',
+				href: '/about',
 			},
 			{
 				title: 'Контакти',
-				href: '/',
+				href: '/contacts',
 			},
 		],
 		sliderItems: [
@@ -26,25 +26,25 @@ export const generalSlice = createSlice({
 				id: 1,
 				img: 'slide-1.png',
 				imgSmall: 'slide-1-mob.png',
-				href: '/',
+				href: '/product',
 			},
 			{
 				id: 2,
 				img: 'slide-1.png',
 				imgSmall: 'slide-1-mob.png',
-				href: '/',
+				href: '/product',
 			},
 			{
 				id: 3,
 				img: 'slide-1.png',
 				imgSmall: 'slide-1-mob.png',
-				href: '/',
+				href: '/product',
 			},
 		],
 	},
 	reducers: {},
 })
 
-export const {} = generalSlice.actions
+// export const {} = generalSlice.actions
 
 export default generalSlice.reducer

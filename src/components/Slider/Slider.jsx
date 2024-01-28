@@ -13,6 +13,7 @@ import 'swiper/scss'
 import 'swiper/scss/navigation'
 import 'swiper/scss/pagination'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 const Slider = () => {
 	const sliderItems = useSelector((state) => state.general.sliderItems)
@@ -37,7 +38,7 @@ const Slider = () => {
 						{sliderItems.map((slider) => {
 							return (
 								<SwiperSlide key={slider.id}>
-									<a className={c.salesSlider__link} href={slider.href}>
+									<Link className={c.salesSlider__link} to={slider.href}>
 										<picture>
 											<source
 												srcSet={`./sliders/${slider.imgSmall}`}
@@ -49,7 +50,7 @@ const Slider = () => {
 												alt='product'
 											/>
 										</picture>
-									</a>
+									</Link>
 								</SwiperSlide>
 							)
 						})}

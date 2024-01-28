@@ -1,6 +1,7 @@
 import React from 'react'
 import c from './Nav.module.scss'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 const Nav = () => {
 	const navigationItems = useSelector((state) => state.general.navigationItems)
@@ -10,9 +11,9 @@ const Nav = () => {
 				{navigationItems.map((link) => {
 					return (
 						<li className={c.nav__item} key={link.title}>
-							<a href={link.href} className={c.nav__link}>
+							<Link to={link.href} className={c.nav__link}>
 								{link.title}
-							</a>
+							</Link>
 						</li>
 					)
 				})}

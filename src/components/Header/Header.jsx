@@ -6,6 +6,7 @@ import PriceBlock from '../PriceBlock/PriceBlock'
 import Nav from '../Nav/Nav'
 import BurgerButton from '../BurgerButton/BurgerButton'
 import useInnerWidth from '../../hooks/useInnerWidth'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
 	const width = useInnerWidth()
@@ -13,9 +14,9 @@ const Header = () => {
 	return (
 		<header className={c.header}>
 			<div className={`${c.header__container} container`}>
-				<a href='/'>
+				<Link to='/'>
 					<img className={c.header__logo} src={logo} alt='logo' />
-				</a>
+				</Link>
 				{width > 768 ? <Nav /> : null}
 				{width > 768 ? <PriceBlock /> : null}
 				{width < 768 ? <BurgerButton /> : null}
