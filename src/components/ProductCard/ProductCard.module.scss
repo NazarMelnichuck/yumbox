@@ -9,7 +9,7 @@
 		.productCard__btn {
 			opacity: 1;
 			visibility: visible;
-			transition: opacity 0.2s, visibility 0.2s;
+			transition: 0.2s;
 		}
 	}
 
@@ -96,9 +96,24 @@
 		}
 
 		&_inCart {
+			padding: 22.5px 20px;
+			opacity: 0;
+			animation: fadeIn 0.5s ease;
+
 			img {
 				margin-right: 10px;
 			}
 		}
+	}
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
 	}
 }

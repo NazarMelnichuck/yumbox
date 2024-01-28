@@ -3,8 +3,8 @@ import c from './Slider.module.scss'
 import './Swiper.scss'
 
 import sticker from '../../assets/img/sales/sticker.png'
-import prev from '../../assets/img/sales/prev-btn.png'
-import next from '../../assets/img/sales/next-btn.png'
+import { ReactComponent as PrevBtn } from '../../assets/img/sales/prev-btn.svg'
+import { ReactComponent as NextBtn } from '../../assets/img/sales/next-btn.svg'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
@@ -56,8 +56,8 @@ const Slider = () => {
 						})}
 					</div>
 					<div className={c.salesSlider__navigations}>
-						<img className='prev-button' src={prev} alt='prev' />
-						<img className='next-button' src={next} alt='next' />
+						<PrevBtn className={`${c.salesSlider__navigateBtn} prev-button`} />
+						<NextBtn className={`${c.salesSlider__navigateBtn} next-button`} />
 					</div>
 				</Swiper>
 			</div>

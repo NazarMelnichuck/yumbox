@@ -1,5 +1,6 @@
 .salesSlider {
 	padding-bottom: 65px;
+	user-select: none;
 	&__container {
 		position: relative;
 	}
@@ -49,6 +50,29 @@
 
 		@media (max-width: 768px) {
 			bottom: 0%;
+		}
+	}
+	&__navigateBtn {
+		* {
+			transition: 0.2s;
+		}
+
+		&:hover {
+			rect {
+				stroke: #fcb852;
+			}
+			path {
+				fill: #fcb852;
+			}
+		}
+
+		&:active {
+			rect {
+				stroke: #ffca7a;
+			}
+			path {
+				fill: #ffca7a;
+			}
 		}
 	}
 }
