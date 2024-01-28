@@ -5,8 +5,8 @@ import { useSelector } from 'react-redux'
 
 const PriceBlock = () => {
 	const { isMenu, setIsMenu, isCart, setIsCart } = useContext(sideBlockContext)
-	const cartItems = useSelector((state) => state.cart.items)
 	const totalPrice = useSelector((state) => state.cart.totalPrice)
+	const totalCount = useSelector((state) => state.cart.totalCount)
 
 	const cartClick = (e) => {
 		if (!isCart) {
@@ -20,7 +20,7 @@ const PriceBlock = () => {
 	}
 	return (
 		<button className={c.priceBlock} onClick={cartClick}>
-			<div className={c.priceBlock__count}>{cartItems.length}</div>
+			<div className={c.priceBlock__count}>{totalCount}</div>
 			<span className={c.priceBlock__price}>{totalPrice} грн</span>
 		</button>
 	)

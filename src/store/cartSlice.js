@@ -11,6 +11,7 @@ export const cartSlice = createSlice({
 			// 	priceCount: 200,
 			// },
 		],
+		totalCount: 0,
 		totalPrice: 0,
 		delivery: 50,
 		orderPrice: 0,
@@ -19,6 +20,7 @@ export const cartSlice = createSlice({
 		addtoCart: (state, action) => {
 			state.items.unshift(action.payload)
 			state.totalPrice += action.payload.priceCount
+			state.totalCount++
 		},
 		deleteCartItem: (state, action) => {
 			const index = state.items.findIndex((item) => item.productId === action.payload)
@@ -26,31 +28,26 @@ export const cartSlice = createSlice({
 			if (index !== -1) {
 				const deletedItem = state.items.splice(index, 1)[0]
 				state.totalPrice -= deletedItem.priceCount
+				state.totalCount -= deletedItem.quantity
 			}
 		},
 		minusQuantity: (state, action) => {
-			state.items.find((item) => {
-				if (item.productId === action.payload.productId && item.quantity > 1) {
-					if (item.quantity === 1) {
-						return null
-					}
-					item.quantity -= 1
-					item.priceCount -= action.payload.price
-					state.totalPrice -= action.payload.price
-				}
+			const cartItem = state.items.find((item) => item.productId === action.payload.productId)
 
-				return null
-			})
+			if (cartItem.quantity > 1) {
+				cartItem.quantity -= 1
+				state.totalCount -= 1
+				cartItem.priceCount -= action.payload.price
+				state.totalPrice -= action.payload.price
+			}
 		},
 		plusQuantity: (state, action) => {
-			state.items.find((item) => {
-				if (item.productId === action.payload.productId) {
-					item.quantity += 1
-					item.priceCount += action.payload.price
-					state.totalPrice += action.payload.price
-				}
-				return null
-			})
+			const cartItem = state.items.find((item) => item.productId === action.payload.productId)
+
+			cartItem.quantity += 1
+			state.totalCount += 1
+			cartItem.priceCount += action.payload.price
+			state.totalPrice += action.payload.price
 		},
 		calculateOrder: (state) => {
 			if (state.totalPrice > 1000) {
@@ -68,11 +65,8 @@ export const cartSlice = createSlice({
 					return {
 						id: product.id,
 						title: product.title,
-						weight: product.weight,
 						image: product.image,
-						icon: product.icon,
-						price: 799,
-						cartId: cartInfo.id,
+						price: product.price,
 						quantity: cartInfo.quantity,
 						priceCount: cartInfo.priceCount,
 					}
@@ -81,12 +75,14 @@ export const cartSlice = createSlice({
 
 			const orderResult = {
 				orderList,
+				totalCount: state.totalCount,
 				orderPrice: state.orderPrice,
 			}
 
 			console.log(orderResult)
 
 			state.items = []
+			state.totalCount = 0
 			state.totalPrice = 0
 			state.orderPrice = 0
 		},
