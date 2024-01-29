@@ -28,10 +28,14 @@
 	}
 
 	&__burger {
-		display: flex;
+		display: none;
 		flex-direction: row;
 		align-items: center;
 		gap: 10px;
+
+		@media (max-width: 768px) {
+			display: flex;
+		}
 	}
 
 	&__burgerText {

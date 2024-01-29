@@ -5,7 +5,7 @@ import CartItem from './CartItem/CartItem'
 import { ReactComponent as Close } from '../../assets/img/close.svg'
 import { sideBlockContext } from '../../App'
 import { useDispatch, useSelector } from 'react-redux'
-import { compliteOrder } from '../../store/cartSlice'
+import { calculateOrder, compliteOrder } from '../../store/cartSlice'
 
 const Cart = () => {
 	const dispatch = useDispatch()
@@ -61,7 +61,10 @@ const Cart = () => {
 					</dl>
 					<button
 						className={c.cart__orderConfirm}
-						onClick={() => dispatch(compliteOrder(cartList))}
+						onClick={() => {
+							dispatch(compliteOrder(cartList))
+							dispatch(calculateOrder())
+						}}
 					>
 						оформити за {cart.orderPrice} ₴
 					</button>

@@ -31,6 +31,7 @@ const Header = () => {
 	}
 
 	useEffect(() => {
+		console.log(burgerBtn)
 		if (isCart || !isMenu) {
 			burgerBtn.current.children[1].classList.remove(`${c.active}`)
 		}
@@ -58,14 +59,12 @@ const Header = () => {
 					</nav>
 				) : null}
 				{width > 768 ? <PriceBlock /> : null}
-				{width <= 768 ? (
-					<div className={c.header__burger} onClick={burgerClick} ref={burgerBtn}>
-						<span className={c.header__burgerText}>Меню</span>
-						<div className={c.headerbBurger}>
-							<span></span>
-						</div>
+				<div className={c.header__burger} onClick={burgerClick} ref={burgerBtn}>
+					<span className={c.header__burgerText}>Меню</span>
+					<div className={c.headerbBurger}>
+						<span></span>
 					</div>
-				) : null}
+				</div>
 			</div>
 			<div className={isMenu ? `${c.menu} ${c.active}` : c.menu}>
 				<div className={c.menu__container}>
