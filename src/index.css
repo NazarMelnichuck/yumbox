@@ -1,3 +1,35 @@
+@font-face {
+	font-family: 'Avenir Next Cyr';
+	src: url('/public/fonts/AvenirNextCyr-Bold.woff') format('woff'),
+		url('/public/fonts/AvenirNextCyr-Bold.ttf') format('truetype'),
+		url('/public/fonts/AvenirNextCyr-Bold.eot');
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: 'Avenir Next Cyr';
+	src: url('/public/fonts/AvenirNextCyr-Demi.woff') format('woff'),
+		url('/public/fonts/AvenirNextCyr-Demi.ttf') format('truetype'),
+		url('/public/fonts/AvenirNextCyr-Demi.eot');
+	font-weight: 600;
+}
+
+@font-face {
+	font-family: 'Avenir Next Cyr';
+	src: url('/public/fonts/AvenirNextCyr-Medium.woff') format('woff'),
+		url('/public/fonts/AvenirNextCyr-Medium.ttf') format('truetype'),
+		url('/public/fonts/AvenirNextCyr-Medium.eot');
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: 'Avenir Next Cyr';
+	src: url('/public/fonts/AvenirNextCyr-Regular.woff') format('woff'),
+		url('/public/fonts/AvenirNextCyr-Regular.ttf') format('truetype'),
+		url('/public/fonts/AvenirNextCyr-Regular.eot');
+	font-weight: normal;
+}
+
 /* Указываем box sizing */
 *,
 *::before,
