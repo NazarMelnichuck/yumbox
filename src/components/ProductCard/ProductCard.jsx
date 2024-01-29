@@ -21,7 +21,9 @@ const ProductCard = ({ id, title, weight, image, quantity, price, priceCount }) 
 
 	return (
 		<li className={c.productCard} key={id}>
-			<img className={c.productCard__img} src={`./products/${image}`} alt={title} />
+			<div className={c.productCard__img}>
+				<img src={`./products/${image}`} alt={title} />
+			</div>
 			<div className={c.productCard__info}>
 				<div className={c.productCard__text}>
 					<h2 className={c.productCard__infoTitle}>{title}</h2>
