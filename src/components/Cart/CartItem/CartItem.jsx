@@ -27,7 +27,10 @@ const CartItem = ({ id, title, weight, icon, quantity, price, priceCount, produc
 				</div>
 				<button
 					className={c.cartItemInfo__delete}
-					onClick={() => dispatch(deleteCartItem(productId))}
+					onClick={() => {
+						dispatch(deleteCartItem(productId))
+						dispatch(calculateOrder())
+					}}
 				>
 					<Bin />
 				</button>

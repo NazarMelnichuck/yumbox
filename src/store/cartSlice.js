@@ -57,6 +57,10 @@ export const cartSlice = createSlice({
 			} else {
 				state.orderPrice = Math.round(state.totalPrice + state.delivery)
 			}
+
+			if (state.items.length === 0) {
+				state.orderPrice = 0
+			}
 		},
 		compliteOrder: (state, action) => {
 			const orderList = action.payload
