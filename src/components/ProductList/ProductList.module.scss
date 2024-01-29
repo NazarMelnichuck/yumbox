@@ -16,7 +16,7 @@
 		display: grid;
 		grid-template-columns: repeat(4, minmax(100px, 295px));
 		justify-content: center;
-		gap: 40px 0;
+		gap: 40px 30px;
 
 		@media (max-width: 1024px) {
 			grid-template-columns: repeat(3, minmax(100px, 295px));
