@@ -44,6 +44,8 @@
 	&__img {
 		max-width: none;
 		width: 25px;
+		height: 25px;
+		object-fit: cover;
 	}
 
 	&__text {
