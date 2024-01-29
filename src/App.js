@@ -2,7 +2,6 @@ import { useState, createContext, useEffect } from 'react'
 import './App.scss'
 import Main from './Pages/Main/Main'
 import Header from './components/Header/Header'
-import Menu from './components/Menu/Menu'
 import Cart from './components/Cart/Cart'
 import useInnerWidth from './hooks/useInnerWidth'
 import PriceBlock from './components/PriceBlock/PriceBlock'
@@ -47,9 +46,8 @@ function App() {
 							className={isMenu || isCart ? 'menuBlur active' : 'menuBlur'}
 							onClick={clickOnBlur}
 						/>
-						<Menu />
 						<Cart />
-						{width < 768 ? (
+						{width <= 768 ? (
 							<div className='price-block'>
 								<PriceBlock />
 							</div>
