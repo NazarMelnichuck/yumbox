@@ -53,9 +53,9 @@ export const cartSlice = createSlice({
 			if (state.totalPrice > 1000) {
 				const discount = (state.totalPrice / 100) * 10
 				const discountedPrice = state.totalPrice - discount
-				state.orderPrice = discountedPrice - state.delivery
+				state.orderPrice = Math.round(discountedPrice + state.delivery)
 			} else {
-				state.orderPrice = state.totalPrice - state.delivery
+				state.orderPrice = Math.round(state.totalPrice + state.delivery)
 			}
 		},
 		compliteOrder: (state, action) => {
