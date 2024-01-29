@@ -26,7 +26,7 @@ const Slider = () => {
 					spaceBetween={50}
 					slidesPerView={1}
 					loop={true}
-					autoplay={{ delay: 5000 }}
+					// autoplay={{ delay: 5000 }}
 					navigation={{
 						prevEl: '.prev-button',
 						nextEl: '.next-button',
@@ -39,10 +39,11 @@ const Slider = () => {
 							return (
 								<SwiperSlide key={slider.id}>
 									<Link className={c.salesSlider__link} to={slider.href}>
-										<picture>
+										<picture className={c.salesSlider__picture}>
 											<source
+												className={c.salesSlider__img}
 												srcSet={`./sliders/${slider.imgSmall}`}
-												media='(max-width: 768px)'
+												media='(max-width: 575px)'
 											/>
 											<img
 												className={c.salesSlider__img}
