@@ -64,10 +64,12 @@
 		bottom: 52%;
 		width: 100%;
 		z-index: 11;
+		padding: 0 10px;
 		cursor: pointer;
 
 		@media (max-width: 768px) {
 			bottom: 0%;
+			padding: 0;
 		}
 	}
 	&__navigateBtn {
@@ -75,12 +77,14 @@
 			transition: 0.2s;
 		}
 
-		&:hover {
-			rect {
-				stroke: #fcb852;
-			}
-			path {
-				fill: #fcb852;
+		@media (min-width: 768px) {
+			&:hover {
+				rect {
+					stroke: #fcb852;
+				}
+				path {
+					fill: #fcb852;
+				}
 			}
 		}
 
