@@ -17,8 +17,10 @@
 	}
 
 	&__logo {
+		margin-left: 30px;
 		@media (max-width: 768px) {
 			width: 75px;
+			margin-left: 0;
 		}
 	}
 }
