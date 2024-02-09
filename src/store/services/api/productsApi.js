@@ -11,7 +11,7 @@ export const productsApi = createApi({
 			query: () => `cart`,
 		}),
 		getProduct: builder.query({
-			query: (id) => `cart/${id}`,
+			query: (id) => `products/${id}`,
 		}),
 		addToCart: builder.mutation({
 			query: (productItem) => ({

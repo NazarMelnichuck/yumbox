@@ -1,22 +1,21 @@
 import React from 'react'
-// import { useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import c from './ProductCard.module.scss'
 
 import mark from '../../assets/img/mark.png'
 // import { addtoCart, calculateOrder, changeQuantity } from '../../store/cartSlice'
-import { useAddToCartMutation } from '../../store/services/api/cartApi'
+import { useAddToCartMutation, useSetProductCountMutation } from '../../store/services/api/cartApi'
 import Loading from '../Loading/Loading'
 import { Link } from 'react-router-dom'
-// import { useAddToCartMutation } from '../../store/services/api/productsApi'
 
 const ProductCard = (props) => {
-	// const dispatch = useDispatch()
+	const dispatch = useDispatch()
 	const [addToCartAPI, { isLoading }] = useAddToCartMutation()
-	// const [setProductCount, { isLoading: countLoading }] = useSetProductCountMutation()
+	const [setProductCount, { isLoading: countLoading }] = useSetProductCountMutation()
 	let { id, title, weight, image, quantity, price, priceCount } = props
 
 	const addCart = (e) => {
-		e.stopPropagation()
+		e.preventDefault()
 		const product = {
 			...props,
 			quantity: 1,
@@ -25,7 +24,8 @@ const ProductCard = (props) => {
 		addToCartAPI(product)
 	}
 
-	// const changeCount = () => {
+	// const changeCount = (e) => {
+	// 	e.preventDefault()
 	// 	quantity = quantity + 1
 	// 	priceCount = priceCount + price
 	// 	const product = {
@@ -39,7 +39,7 @@ const ProductCard = (props) => {
 
 	return (
 		<li className={c.productCard} key={id}>
-			<Link to={`product/${id}`} onClick={(e) => e.stopPropagation}>
+			<Link to={`product/${id}`}>
 				<div className={c.productCard__img}>
 					<img src={`./products/${image}`} alt={title} />
 				</div>
