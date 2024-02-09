@@ -31,52 +31,56 @@ export const cartSlice = createSlice({
 				state.totalCount -= deletedItem.quantity
 			}
 		},
-		minusQuantity: (state, action) => {
-			const cartItem = state.items.find((item) => item.productId === action.payload.productId)
+		// minusQuantity: (state, action) => {
+		// 	if (state.totalCount > 1) {
+		// 		state.totalCount -= 1
+		// 		// state.totalPrice -= action.payload.price
+		// 	}
+		// },
+		// plusQuantity: (state, action) => {
+		// 	state.totalCount += 1
+		// },
+		changeQuantity: (state, action) => {
+			const cartItems = action.payload
+			let calculatedPrice = null
+			let calculateQuantity = null
+			let calculateOrderPrice = null
 
-			if (cartItem.quantity > 1) {
-				cartItem.quantity -= 1
-				state.totalCount -= 1
-				cartItem.priceCount -= action.payload.price
-				state.totalPrice -= action.payload.price
-			}
+			cartItems.forEach((item) => {
+				calculatedPrice += item.priceCount
+				calculateQuantity += item.quantity
+
+				if (calculatedPrice > 1000) {
+					const discount = (calculatedPrice / 100) * 10
+					const discountedPrice = calculatedPrice - discount
+					calculateOrderPrice = Math.round(discountedPrice + state.delivery)
+				} else {
+					calculateOrderPrice = Math.round(state.totalPrice + state.delivery)
+				}
+				if (calculateQuantity === 0) {
+					calculateOrderPrice = 0
+				}
+			})
+
+			state.totalPrice = calculatedPrice ? calculatedPrice : 0
+			state.totalCount = calculateQuantity ? calculateQuantity : 0
+			state.orderPrice = calculateOrderPrice ? calculateOrderPrice : 0
 		},
-		plusQuantity: (state, action) => {
-			const cartItem = state.items.find((item) => item.productId === action.payload.productId)
-
-			cartItem.quantity += 1
-			state.totalCount += 1
-			cartItem.priceCount += action.payload.price
-			state.totalPrice += action.payload.price
-		},
-		calculateOrder: (state) => {
-			if (state.totalPrice > 1000) {
-				const discount = (state.totalPrice / 100) * 10
-				const discountedPrice = state.totalPrice - discount
-				state.orderPrice = Math.round(discountedPrice + state.delivery)
-			} else {
-				state.orderPrice = Math.round(state.totalPrice + state.delivery)
-			}
-
-			if (state.items.length === 0) {
-				state.orderPrice = 0
-			}
+		calculateOrder: (state, action) => {
+			// if (state.totalPrice > 1000) {
+			// 	const discount = (state.totalPrice / 100) * 10
+			// 	const discountedPrice = state.totalPrice - discount
+			// 	state.orderPrice = Math.round(discountedPrice + state.delivery)
+			// } else {
+			// 	state.orderPrice = Math.round(state.totalPrice + state.delivery)
+			// }
+			// if (state.totalCount === 0) {
+			// 	state.orderPrice = 0
+			// }
+			// console.log(state.orderPrice)
 		},
 		compliteOrder: (state, action) => {
 			const orderList = action.payload
-				.map((product) => {
-					const cartInfo = state.items.find((cartEl) => cartEl.productId === product.id)
-					return {
-						id: product.id,
-						title: product.title,
-						image: product.image,
-						price: product.price,
-						quantity: cartInfo.quantity,
-						priceCount: cartInfo.priceCount,
-					}
-				})
-				.reverse()
-
 			const orderResult = {
 				orderList,
 				totalCount: state.totalCount,
@@ -84,22 +88,10 @@ export const cartSlice = createSlice({
 			}
 
 			console.log(orderResult)
-
-			state.items = []
-			state.totalCount = 0
-			state.totalPrice = 0
-			state.orderPrice = 0
 		},
 	},
 })
 
-export const {
-	addtoCart,
-	deleteCartItem,
-	minusQuantity,
-	plusQuantity,
-	calculateOrder,
-	compliteOrder,
-} = cartSlice.actions
+export const { addtoCart, deleteCartItem, changeQuantity, calculateOrder, compliteOrder } = cartSlice.actions
 
 export default cartSlice.reducer

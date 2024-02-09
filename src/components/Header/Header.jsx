@@ -31,7 +31,6 @@ const Header = () => {
 	}
 
 	useEffect(() => {
-		console.log(burgerBtn)
 		if (isCart || !isMenu) {
 			burgerBtn.current.children[1].classList.remove(`${c.active}`)
 		}

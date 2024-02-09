@@ -1,45 +1,37 @@
-import { React, useState, useContext, useEffect } from 'react'
+import { React, useContext } from 'react'
 import c from './Cart.module.scss'
 import CartItem from './CartItem/CartItem'
 
 import { ReactComponent as Close } from '../../assets/img/close.svg'
 import { sideBlockContext } from '../../App'
 import { useDispatch, useSelector } from 'react-redux'
-import { compliteOrder } from '../../store/cartSlice'
+import { changeQuantity, compliteOrder } from '../../store/cartSlice'
+import { useGetCartQuery, useOrderCompliteMutation } from '../../store/services/api/cartApi'
+import Loading from '../Loading/Loading'
 
 const Cart = () => {
 	const dispatch = useDispatch()
 	const { isCart, setIsCart } = useContext(sideBlockContext)
-	const [cartList, setCartList] = useState([])
-	const products = useSelector((state) => state.products.items)
 	const cart = useSelector((state) => state.cart)
-
-	useEffect(() => {
-		setCartList(
-			cart.items.map((cartEl) => {
-				const cartItem = products.find((productEl) => cartEl.productId === productEl.id)
-				return { ...cartItem }
-			})
-		)
-	}, [cart.items, products])
+	const { data: cartResponse, isFetching } = useGetCartQuery()
+	const [clearCart] = useOrderCompliteMutation()
 
 	const renderCartItems = () => {
-		return cart.items.map((cartEl) => {
-			const cartItem = products.find((productEl) => cartEl.productId === productEl.id)
-			const quantity = cartEl ? cartEl.quantity : 0
-			const priceCount = cartEl ? cartEl.priceCount : 0
-			const productId = cartEl.productId
+		if (!isFetching && cartResponse) {
+			dispatch(changeQuantity(cartResponse))
+			return cartResponse.map((cartEl) => {
+				return <CartItem key={cartEl.id} {...cartEl} />
+			})
+		} else {
+			return <Loading />
+		}
+	}
 
-			return (
-				<CartItem
-					key={cartItem.id}
-					{...cartItem}
-					quantity={quantity}
-					priceCount={priceCount}
-					productId={productId}
-				/>
-			)
+	const getOrder = () => {
+		cartResponse.forEach((item) => {
+			clearCart(item)
 		})
+		dispatch(compliteOrder(cartResponse))
 	}
 
 	return (
@@ -59,10 +51,7 @@ const Cart = () => {
 						<dt className={c.orderInfo__key}>Доставка</dt>
 						<dd className={c.orderInfo__value}>50 ₴</dd>
 					</dl>
-					<button
-						className={c.cart__orderConfirm}
-						onClick={() => dispatch(compliteOrder(cartList))}
-					>
+					<button className={c.cart__orderConfirm} onClick={getOrder}>
 						оформити за {cart.orderPrice} ₴
 					</button>
 				</div>

@@ -1,0 +1,176 @@
+Sliders
+[
+	{
+		"id": 1,
+		"img": "https://fastly.picsum.photos/id/685/1235/505.jpg?hmac=ZvtSH2V5FkAq2BO0brHTSmVODNX_RGrdgpO66FX1hW4",
+		"imgSmall": "https://fastly.picsum.photos/id/440/535/505.jpg?hmac=W6n8RC3AhEyOlKCRcJEnB8YoFA7jlSNsfNKlorcyDXo",
+		"href": "/product"
+	},
+	{
+		"id": 2,
+		"img": "https://fastly.picsum.photos/id/27/1235/505.jpg?hmac=ECfaFYLn112J54IjaKjqY5jvj2RLPTkpg1R8pAjqdFA",
+		"imgSmall": "https://fastly.picsum.photos/id/11/535/505.jpg?hmac=rpjpU2zLOuGQuyRQNIYH9fFfO72FPX3v0WeM1NyH5CA",
+		"href": "/product"
+	},
+	{
+		"id": 3,
+		"img": "https://fastly.picsum.photos/id/357/1235/505.jpg?hmac=z5Gj4bITROV1avVo-tYRfGGuRJnaPTCAg_gWeAV3s08",
+		"imgSmall": "https://fastly.picsum.photos/id/965/535/505.jpg?hmac=4KEJma43lyJ7L4596VdHX6VrgCHIiP5BMA8wpV74NwI",
+		"href": "/product"
+	}
+]
+
+Products
+
+[
+  {
+    "id": "1",
+    "title": "Yumbox 1 сет",
+    "weight": 1500,
+    "image": "product-1.jpg",
+    "icon": "product-1-icon.png",
+    "price": 799
+  },
+  {
+    "id": "2",
+    "title": "Yumbox 2 сет",
+    "weight": 1500,
+    "image": "product-1.jpg",
+    "icon": "product-1-icon.png",
+    "price": 800
+  },
+  {
+    "id": "3",
+    "title": "Yumbox 3 сет",
+    "weight": 1500,
+    "image": "product-1.jpg",
+    "icon": "product-1-icon.png",
+    "price": 500
+  },
+  {
+    "id": "4",
+    "title": "Yumbox 4 сет",
+    "weight": 600,
+    "image": "product-1.jpg",
+    "icon": "product-1-icon.png",
+    "price": 799
+  },
+  {
+    "id": "5",
+    "title": "Yumbox 5 сет",
+    "weight": 1500,
+    "image": "product-1.jpg",
+    "icon": "product-1-icon.png",
+    "price": 300
+  },
+  {
+    "id": "6",
+    "title": "Yumbox 6 сет",
+    "weight": 1500,
+    "image": "product-1.jpg",
+    "icon": "product-1-icon.png",
+    "price": 1000
+  },
+  {
+    "id": "7",
+    "title": "Yumbox 7 сет",
+    "weight": 1500,
+    "image": "product-1.jpg",
+    "icon": "product-1-icon.png",
+    "price": 450
+  },
+  {
+    "id": "8",
+    "title": "Yumbox 8 сет",
+    "weight": 1500,
+    "image": "product-1.jpg",
+    "icon": "product-1-icon.png",
+    "price": 799
+  }
+]
+
+
+ALLL to API
+
+[
+  {
+    "products": [
+      {
+        
+        "title": "Yumbox 1 сет",
+        "weight": 1500,
+        "image": "product-1.jpg",
+        "icon": "product-1-icon.png",
+        "price": 799
+      },
+      {
+        
+        "title": "Yumbox 2 сет",
+        "weight": 1500,
+        "image": "product-1.jpg",
+        "icon": "product-1-icon.png",
+        "price": 800
+      },
+      {
+        
+        "title": "Yumbox 3 сет",
+        "weight": 1500,
+        "image": "product-1.jpg",
+        "icon": "product-1-icon.png",
+        "price": 500
+      },
+      {
+        
+        "title": "Yumbox 4 сет",
+        "weight": 600,
+        "image": "product-1.jpg",
+        "icon": "product-1-icon.png",
+        "price": 799
+      },
+      {
+        
+        "title": "Yumbox 5 сет",
+        "weight": 1500,
+        "image": "product-1.jpg",
+        "icon": "product-1-icon.png",
+        "price": 300
+      },
+      {
+        
+        "title": "Yumbox 6 сет",
+        "weight": 1500,
+        "image": "product-1.jpg",
+        "icon": "product-1-icon.png",
+        "price": 1000
+      },
+      {
+        
+        "title": "Yumbox 7 сет",
+        "weight": 1500,
+        "image": "product-1.jpg",
+        "icon": "product-1-icon.png",
+        "price": 450
+      },
+      {
+        
+        "title": "Yumbox 8 сет",
+        "weight": 1500,
+        "image": "product-1.jpg",
+        "icon": "product-1-icon.png",
+        "price": 799
+      }
+    ]
+  },
+  {
+    "productId": "3",
+    "quantity": 1,
+    "priceCount": 500,
+    "id": "1"
+  },
+  {
+    "productId": "2",
+    "quantity": 1,
+    "priceCount": 800,
+    "id": "2"
+  }
+]

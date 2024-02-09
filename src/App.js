@@ -8,6 +8,7 @@ import PriceBlock from './components/PriceBlock/PriceBlock'
 import { Provider } from 'react-redux'
 import store from './store/store'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Product from './Pages/Product/Product'
 
 export const sideBlockContext = createContext(null)
 
@@ -39,13 +40,11 @@ function App() {
 						<main className='main'>
 							<Routes>
 								<Route path='/' element={<Main />} />
+								<Route path='/product/:id' element={<Product />} />
 							</Routes>
 						</main>
 
-						<div
-							className={isMenu || isCart ? 'menuBlur active' : 'menuBlur'}
-							onClick={clickOnBlur}
-						/>
+						<div className={isMenu || isCart ? 'menuBlur active' : 'menuBlur'} onClick={clickOnBlur} />
 						<Cart />
 						{width <= 768 ? (
 							<div className='price-block'>

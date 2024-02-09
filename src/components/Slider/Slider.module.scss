@@ -36,15 +36,15 @@
 		border-radius: 25px;
 	}
 	&__picture {
-		position: relative;
+		// position: relative;
 		&::before {
 			content: '';
 			display: block;
 			width: 100%;
-			padding-bottom: calc(504px / 1236px * 100%);
+			padding-bottom: calc(505px / 1235px * 100%);
 
 			@media (max-width: 575px) {
-				padding-bottom: calc(316px / 335px * 100%);
+				padding-bottom: calc(505px / 535px * 100%);
 			}
 		}
 	}

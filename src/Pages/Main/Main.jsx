@@ -6,7 +6,7 @@ import ProductList from '../../components/ProductList/ProductList'
 const Main = () => {
 	return (
 		<>
-			<Slider />
+			{/* <Slider /> */}
 			<ProductList />
 		</>
 	)
